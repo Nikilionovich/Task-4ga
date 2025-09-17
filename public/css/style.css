@@ -1,0 +1,411 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.page_body {
+  background-color: #f5f5f5;
+  color: #333333;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  background-color: #3498db;
+  padding: 39px;
+  padding-left: 60px;
+
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.listdo {
+  font-size: 24px;
+  color: #333333;
+  text-decoration: none;
+}
+
+.wrapper-info {
+  display: flex;
+  gap: 50px;
+  font-size: 24px;
+  color: #333333;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.footer {
+
+  flex: 0 0 auto;
+}
+
+.TEXTBOARD {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.createboard {
+  padding: 10px;
+  margin: auto;
+  min-width: 400px;
+  min-height: 400px;
+  border-width: 1.5px;
+
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.25);
+
+}
+
+.btnFcreate {
+  cursor: pointer;
+  width: 200px;
+  margin-top: 25px;
+
+}
+
+#btncreate {
+  cursor: pointer;
+}
+
+#CloseModal {
+  cursor: pointer;
+}
+
+#h2createdo {
+  text-align: center;
+  padding-bottom: 25px;
+}
+
+.massError {
+  color: red;
+}
+
+.btnchangeToDo {
+  cursor: pointer;
+  background: url(img/353430-checkbox-edit-pen-pencil_107516.png) no-repeat center center;
+  min-width: 30px;
+  min-height: 30px;
+  border: none;
+}
+
+#showPopup {
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  min-width: 330px;
+  min-height: 60px;
+  background-color: #2EEC71;
+  border-radius: 2px;
+  border-color: #6d9a11;
+  color: #333333;
+
+}
+
+.btnDeleteToDo {
+  cursor: pointer;
+  background: url(img/seo-social-web-network-internet_262_icon-icons.com_61518.png) no-repeat center center;
+  min-width: 30px;
+  min-height: 30px;
+  border: none;
+}
+
+#forToDo {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  text-align: center;
+  
+}
+
+#changeTodo {
+  padding: 10px;
+  margin: auto;
+  min-width: 400px;
+  min-height: 400px;
+  border-width: 1.5px;
+}
+
+#h2Changedo {
+  text-align: center;
+  padding-bottom: 25px;
+}
+
+#FormOfChange {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.todo-item {
+  font-family: Arial, sans-serif;
+  border: groove;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  display: flex;
+    flex-direction: column;
+    max-width: 115px;
+    justify-content: space-evenly;
+    min-width: 101px;
+    white-space: normal; /* Устанавливаем нормальные пробелы */
+  overflow-wrap: break-word; /* Перенос слов при необходимости */
+  word-break: keep-all;
+}
+
+.ContainBTNCreate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 26px;
+  gap: 25px;
+}
+
+#DialogOFcreateTag {
+  padding: 10px;
+  margin: auto auto 25%;
+  min-width: auto;
+  min-height: auto;
+  border-width: 1.5px;
+}
+
+.h2CreateTag {
+  text-align: center;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-content li {
+  padding: 12px 16px;
+  cursor: pointer;
+}
+
+.dropdown-content li:hover {
+  background-color: #f1f1f1;
+}
+.popup {
+  position: absolute;
+  left: 161px;
+  bottom: -144px;
+  transform: translateY(-50%);
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 8px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 200px;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.popup.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+.tag.hidden{
+  opacity: 0;
+  visibility: hidden;
+}
+.datepop.hidden{
+  opacity: 0;
+  visibility: hidden;
+}
+.deadlinepop.hidden{
+  opacity: 0;
+  visibility: hidden;
+}
+.tag{
+  position: absolute;
+  left: 161px;
+  bottom: -266px  ;
+  transform: translateY(-50%);
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 8px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 200px;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.deadlinepop{
+  position: absolute;
+  left: 161px;
+  bottom: -305px;
+  transform: translateY(-50%);
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 8px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 200px;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.h3filtbydate{
+  text-align: center;
+}
+.popup ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.popup ul li {
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.popup ul li:hover {
+  background-color: #f0f0f0;
+}
+.dropbtn{
+  margin-top: 10px;
+}
+.dropdown-content li:hover{
+  background-color: #ccc;
+}
+.datepop{
+  position: absolute;
+    left: 161px;
+    bottom: -262px;
+    transform: translateY(-50%);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 8px;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.fordropdowncont{
+  display: flex;
+  gap: 20px; 
+}
+.divofdateforfilt{
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.btnfilterbydatecss{
+  margin-top: 6px;
+}
+#dropbtn1{
+  background: url(img/sort_sf912ar6tou5.svg) no-repeat center center;
+  min-height: 45px;
+  min-width: 45px;
+  border: none;
+  cursor: pointer;
+}
+#dropbtn2{
+  background: url(img/filter_rnsq3xjx3tlc.svg) no-repeat center center;
+  min-height: 45px;
+  min-width: 45px;
+  border: none;
+  cursor: pointer;
+}
+#refreshbtn{
+  background: url(img/refresh_uscdel8skbxv.svg) no-repeat center center;
+  min-height: 45px;
+  min-width: 45px;
+  border: none;
+  cursor: pointer;
+}
+#CreateTag{
+
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    min-height: 45px;
+    padding:6px;
+    font-size: 16px;
+    background-color: #2EEC71;
+    border-radius: 2px;
+    border-color: #6d9a11;
+    color: #333333;
+    
+}
+#forChangeBoard
+{
+  max-height: 50px; 
+    overflow-y: auto;
+    border: 1px solid #ccc; 
+    padding: 10px; 
+    background-color: #f9f9f9; 
+}
+#forCreateBoard{
+  max-height: 50px; 
+  overflow-y: auto;
+  border: 1px solid #ccc; 
+  padding: 10px; 
+  background-color: #f9f9f9;
+}
+#forCreateBoardfilt{
+  max-height: 50px; 
+  overflow-y: auto;
+  border: 1px solid #ccc; 
+  padding: 10px; 
+  background-color: #f9f9f9;
+  
+}
+#h2NameOftDo{
+  font-size: 18px;
+}
+#DescriptionOfToDo{
+  font-size: 16px;
+}
+#DeadLineOfToDo{
+  font-size: 14px;
+  color: #999999;
+}
+#TagOfToDo{
+  background-color: #2EEC71;
+  color: #ffffff;
+}
+#StatusOfToDo{
+  background-color: #3498db;
+  color: #ffffff;
+}
+.refforteacher{
+  font-size: 60px;
+}
+@media(max-width:614px) {
+  .wrapper-info{
+    flex-direction: column;
+  }
+  .container{
+    align-items: center;
+  }
+  .header {
+    padding: 17px;
+    padding-left: 20px;
+  }
+}
