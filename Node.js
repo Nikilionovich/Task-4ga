@@ -1,21 +1,19 @@
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
-const port = 3000;
+const port = 3000; 
+const year = new Date().getFullYear()
 function RandomInt(min,max){
     return Math.floor(Math.random() * (max - min))
 }
 function generateDevInfo(template,data){
     let output=template;
     for (const key in data) {
-       output=output.replace(`{{${key}}}`,data[key]);
+       output=output.replaceAll(`{{${key}}}`,data[key]);
     }
+    output=output.replace("{{currentYear}}",year)
     return output;
-}
-const developerInfo={
-    city: "Minsk",
-    expirience:RandomInt(1,100),
-    specialization:'Frontend-разработка',
+    
 }
 const contentTypes = {
     ".ico": "image/x-icon",
@@ -30,7 +28,20 @@ const contentTypes = {
     ".js": "text/javascript",
     ".json": "application/json",
   };
-  const TemplateAbout=path.join(__dirname,"public","html","about.html");
+const developerInfo={
+    city: "Minsk",
+    expirience:RandomInt(1,100),
+    specialization:'Frontend-разработка',
+}
+const projectData={
+    projectName:"MyName",
+    projectDescription:"blablbalbalbal",
+}
+const skillsdata=['HTML', 'CSS', 'JavaScript', 'Node.js'];
+  const templateAbout=fs.readFileSync(path.join(__dirname,"public","html","about.html"),"utf-8");
+  const templateProject=fs.readFileSync(path.join(__dirname,"public","html","project.html"),"utf-8");
+  const templateSkills=fs.readFileSync(path.join(__dirname,"public","html","skills.html"),"utf-8");
+  let htmlcode;
 http.createServer(function (req, res) {
     switch (req.url) {
         case "/":
@@ -38,15 +49,26 @@ http.createServer(function (req, res) {
             res.end();
             break;
         case "/about":
-           const html= generateDevInfo(TemplateAbout,developerInfo);
             res.writeHead(200,{"Content-type":"text/html; charset=utf-8;"});
-            res.end(html);
+            htmlcode= generateDevInfo(templateAbout,developerInfo);
+            res.end(htmlcode);
+            break;
+        case "/project":
+            res.writeHead(200,{"Content-type":"text/html; charset=utf-8;"});
+            htmlcode=generateDevInfo(templateProject,projectData);
+            res.end(htmlcode);
+            break;
+        case "/skills":
+            res.writeHead(200,{"Content-type":"text/html; charset=utf-8;"});
+            htmlcode=skillsdata.map((key)=>{`<li>${key}</li>` }).join(", ");
+            htmlcode.replace("{{currentyear}}",year);
+            res.end(templateSkills.replace("{{skillsList}}",htmlcode));
             break;
         default:
-           const filepath = path.join(__dirname, "public", req.url);
+           let filepath = path.join(__dirname, "public", req.url);
            fs.access(filepath,fs.constants.R_OK,(ERR)=>{
                if (ERR) {
-                    writeHead(404,{"Content-type":"text/html"});
+                    res.writeHead(404,{"Content-type":"text/html",});
                     filepath=path.join(__dirname,"public","html","pagenotfound.html");
                     fs.createReadStream(filepath).pipe(res);
                } else {
@@ -60,5 +82,5 @@ http.createServer(function (req, res) {
     }
 
 }).listen(port, function () {
-    console.log(` ${port}`);
+    console.log(`http://localhost:${port}`);
 });
