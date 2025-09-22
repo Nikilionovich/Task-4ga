@@ -60,7 +60,7 @@ http.createServer(function (req, res) {
             break;
         case "/skills":
             res.writeHead(200,{"Content-type":"text/html; charset=utf-8;"});
-            htmlcode=skillsdata.map((key)=>{`<li>${key}</li>` }).join(", ");
+            htmlcode=skillsdata.map((key)=>`<li>${key}</li>` ).join(", ");
             htmlcode.replace("{{currentyear}}",year);
             res.end(templateSkills.replace("{{skillsList}}",htmlcode));
             break;
@@ -83,4 +83,5 @@ http.createServer(function (req, res) {
 
 }).listen(port, function () {
     console.log(`http://localhost:${port}`);
+
 });
